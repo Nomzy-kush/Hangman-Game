@@ -38,8 +38,6 @@ document.onkeypress = function (e) {
   handleGuess(character);
 };
 
-
-
 function generateButtons() {
   let buttonsHTML = 'abcdefghijklmnopqrstuvwxyz'.split('').map(letter =>
     `
