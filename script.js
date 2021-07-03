@@ -11,7 +11,6 @@ var socialMedia = [
   "bbm",
   "palmchat",
   "gmail",
-  "2go",
   "linkedin",
   "reddit",
   "hangouts",
@@ -23,11 +22,23 @@ let answer = '';
 let maxWrong = 6;
 let mistakes = 0;
 let guessed = [];
+let alphabets=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 let wordStatus = null;
 
 function randomWord() {
   answer = socialMedia[Math.floor(Math.random() * socialMedia.length)];
 }
+
+document.onkeypress = function (e) {
+  e = e || window.event;
+  var charCode = e.charCode || e.keyCode,
+      character = String.fromCharCode(charCode);
+
+  if (alphabets.includes(character))
+  handleGuess(character);
+};
+
+
 
 function generateButtons() {
   let buttonsHTML = 'abcdefghijklmnopqrstuvwxyz'.split('').map(letter =>
